@@ -66,4 +66,4 @@ Incluye métodos como:
 
 Esta clase inserta nodos y luego imprime lo siguiente en consola:
 
-![Salida de consola](img/Captura.png)
+![Salida de consola](/img/Captura.png)
