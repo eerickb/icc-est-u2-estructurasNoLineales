@@ -1,18 +1,69 @@
+# Árbol Binario de Búsqueda: Altura, Peso y Equilibrio
+
+## 📌 Información General
+
+- **Título:** Práctica de Estructuras No Lineales
+- **Asignatura:** Estructura de Datos
+- **Carrera:** Computación
+- **Estudiante:** Erick Bermeo
+- **Fecha:** 20/06/2025
+- **Profesor:** Ing. Pablo Torres
+
 ## Getting Started
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+Este repositorio corresponde a una práctica de la asignatura **Estructura de Datos**, en la que se implementa un **árbol binario de búsqueda** (ABB) en Java. El objetivo es construir el árbol, insertar nodos, recorrerlo en orden, calcular su altura, peso y analizar si está equilibrado.
 
-## Folder Structure
+---
 
-The workspace contains two folders by default, where:
+## Requirements
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+* **Java JDK 11** o superior.
+* **NetBeans 12** o superior (opcional).
+* **Git 2.20** o superior.
 
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
+---
 
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
+## Definición del Proyecto
 
-## Dependency Management
+El árbol binario de búsqueda permite almacenar datos ordenados para búsquedas eficientes. En este proyecto, se insertan varios nodos en el árbol, se imprimen recorridos y características como:
 
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+- Peso (cantidad de nodos)
+- Altura del árbol
+- Recorrido InOrder
+- Altura por nodo
+- Factor de equilibrio por nodo
+- Si el árbol está equilibrado o no
+- Nodos desequilibrados
+
+---
+
+## Estructura del Proyecto
+
+El proyecto contiene las siguientes clases:
+
+- `Node`: representa un nodo del árbol.
+- `BinaryTree`: clase principal con métodos de inserción, recorridos, altura, peso y equilibrio.
+- `App`: clase principal que ejecuta la práctica solicitada.
+
+---
+
+## Instrucciones
+
+1. **Revisa el código de `BinaryTree.java`**
+
+Incluye métodos como:
+- `insert(int value)`
+- `peso()`
+- `altura()`
+- `inOrder()`
+- `inOrderAlturas()`
+- `inOrderBalance()`
+- `nodosDesequilibrados()`
+- `estaBalanceado()`
+- `findeValue(int valor)`
+
+2. **Ejecuta la clase `App.java`**
+
+Esta clase inserta nodos y luego imprime lo siguiente en consola:
+
+![Salida de consola](img/Captura.png)
