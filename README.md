@@ -67,3 +67,7 @@ Incluye métodos como:
 Esta clase inserta nodos y luego imprime lo siguiente en consola:
 
 ![Salida de consola](./img/Captura.png)
+
+3. **Rotaciones 27/06/2025**
+
+![Salida de consola](./img/rotaciones.png)
