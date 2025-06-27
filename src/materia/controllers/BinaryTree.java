@@ -6,30 +6,30 @@ public class BinaryTree {
     private int count = 0;
     private boolean balanceado = true;
 
-    public void insert(int val) {
-        root = insertRec(root, val);
+    public void insert(int value) {
+        root = insertRec(root, value);
     }
 
-    private Node insertRec(Node n, int val) {
-        if (n == null) {
+    private Node insertRec(Node node, int value) {
+        if (node == null) {
             count++;
-            return new Node(val);
+            return new Node(value);
         }
-        if (val <= n.getvalue())
-            n.setLeft(insertRec(n.getLeft(), val));
+        if (value <= node.getvalue())
+            node.setLeft(insertRec(node.getLeft(), value));
         else
-            n.setRight(insertRec(n.getRight(), val));
-        return n;
+            node.setRight(insertRec(node.getRight(), value));
+        return node;
     }
 
-    public boolean findeValue(int val) {
-        return buscar(root, val);
+    public boolean findeValue(int value) {
+        return buscar(root, value);
     }
 
-    private boolean buscar(Node n, int val) {
-        if (n == null) return false;
-        if (n.getvalue() == val) return true;
-        return val < n.getvalue() ? buscar(n.getLeft(), val) : buscar(n.getRight(), val);
+    private boolean buscar(Node node, int value) {
+        if (node == null) return false;
+        if (node.getvalue() == value) return true;
+        return value < node.getvalue() ? buscar(node.getLeft(), value) : buscar(node.getRight(), value);
     }
 
     public int peso() {
@@ -40,9 +40,9 @@ public class BinaryTree {
         return altura(root);
     }
 
-    private int altura(Node n) {
-        if (n == null) return 0;
-        return 1 + Math.max(altura(n.getLeft()), altura(n.getRight()));
+    private int altura(Node node) {
+        if (node == null) return 0;
+        return 1 + Math.max(altura(node.getLeft()), altura(node.getRight()));
     }
 
     public void inOrder() {
@@ -50,11 +50,11 @@ public class BinaryTree {
         System.out.println();
     }
 
-    private void inOrder(Node n) {
-        if (n != null) {
-            inOrder(n.getLeft());
-            System.out.print(n.getvalue() + ", ");
-            inOrder(n.getRight());
+    private void inOrder(Node node) {
+        if (node != null) {
+            inOrder(node.getLeft());
+            System.out.print(node.getvalue() + ", ");
+            inOrder(node.getRight());
         }
     }
 
@@ -63,11 +63,11 @@ public class BinaryTree {
         System.out.println();
     }
 
-    private void inOrderAlturas(Node n) {
-        if (n != null) {
-            inOrderAlturas(n.getLeft());
-            System.out.print(n.getvalue() + "(h=" + altura(n) + "), ");
-            inOrderAlturas(n.getRight());
+    private void inOrderAlturas(Node node) {
+        if (node != null) {
+            inOrderAlturas(node.getLeft());
+            System.out.print(node.getvalue() + "(h=" + altura(node) + "), ");
+            inOrderAlturas(node.getRight());
         }
     }
 
@@ -77,13 +77,13 @@ public class BinaryTree {
         System.out.println();
     }
 
-    private void inOrderBalance(Node n) {
-        if (n != null) {
-            inOrderBalance(n.getLeft());
-            int bf = altura(n.getLeft()) - altura(n.getRight());
-            System.out.print(n.getvalue() + "(bf=" + bf + "), ");
+    private void inOrderBalance(Node node) {
+        if (node != null) {
+            inOrderBalance(node.getLeft());
+            int bf = altura(node.getLeft()) - altura(node.getRight());
+            System.out.print(node.getvalue() + "(bf=" + bf + "), ");
             if (Math.abs(bf) > 1) balanceado = false;
-            inOrderBalance(n.getRight());
+            inOrderBalance(node.getRight());
         }
     }
 
@@ -93,12 +93,12 @@ public class BinaryTree {
         return balanceado;
     }
 
-    private void checkBalance(Node n) {
-        if (n != null) {
-            int bf = altura(n.getLeft()) - altura(n.getRight());
+    private void checkBalance(Node node) {
+        if (node != null) {
+            int bf = altura(node.getLeft()) - altura(node.getRight());
             if (Math.abs(bf) > 1) balanceado = false;
-            checkBalance(n.getLeft());
-            checkBalance(n.getRight());
+            checkBalance(node.getLeft());
+            checkBalance(node.getRight());
         }
     }
 
@@ -108,16 +108,16 @@ public class BinaryTree {
         System.out.println();
     }
 
-    private void nodosDesequilibrados(Node n, int[] contador) {
-        if (n != null) {
-            nodosDesequilibrados(n.getLeft(), contador);
-            int bf = altura(n.getLeft()) - altura(n.getRight());
+    private void nodosDesequilibrados(Node node, int[] contador) {
+        if (node != null) {
+            nodosDesequilibrados(node.getLeft(), contador);
+            int bf = altura(node.getLeft()) - altura(node.getRight());
             if (Math.abs(bf) > 1) {
                 if (contador[0] > 0) System.out.print(" y ");
-                System.out.print(n.getvalue() + "(fE = " + bf + ")");
+                System.out.print(node.getvalue() + "(fE = " + bf + ")");
                 contador[0]++;
             }
-            nodosDesequilibrados(n.getRight(), contador);
+            nodosDesequilibrados(node.getRight(), contador);
         }
     }
 }
